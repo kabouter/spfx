@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "fluent-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/fluent/FluentWebPart.js",
+          "manifest": "./src/webparts/fluent/FluentWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FluentWebPartStrings": "lib/webparts/fluent/loc/{locale}.js"
+  }
+}
