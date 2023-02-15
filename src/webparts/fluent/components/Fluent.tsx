@@ -27,7 +27,7 @@ export default class Fluent extends React.Component<IFluentProps,{}> {
 
 public componentDidMount(): void {
   // read all file sizes from Documents library
-  this._readAllFilesSize();
+  this.printCurrentUser();
 }
 
 
@@ -37,7 +37,7 @@ public render(): JSX.Element {
 }
 
 
-private _readAllFilesSize = async (): Promise<void> => {
+private printCurrentUser = async (): Promise<void> => {
  
     // do PnP JS query, some notes:
     //   - .expand() method will retrive Item.File item but only Length property
@@ -49,17 +49,8 @@ private _readAllFilesSize = async (): Promise<void> => {
 
     //Creating a new sp object to include caching behavior. This way our original object is unchanged.
     try {
-      const allUsers = [];
-      let users = await getSP.users.top(300).paged();
-      
-      allUsers.push(...users.value);
-      
-      while (users.hasNext) {
-        users = await users.next();
-        allUsers.push(...users.value);
-      }
-      
-      console.log(`All users: ${JSON.stringify(allUsers)}`);
+      const currentUser = await getSP.me();
+      console.log(`current User: ${currentUser}`);
     } catch (error) {
       
     }
