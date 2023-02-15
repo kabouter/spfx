@@ -20,3 +20,6 @@ export const getSP = (context?: WebPartContext): GraphFI  => {
   }
   return _sp;
 };
+
+
+
